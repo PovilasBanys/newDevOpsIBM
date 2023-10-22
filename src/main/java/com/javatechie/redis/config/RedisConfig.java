@@ -13,22 +13,23 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @EnableRedisRepositories
 public class RedisConfig {
 
-//    @Bean
-//    public JedisConnectionFactory connectionFactory() {
-//        RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-//        configuration.setHostName("localhost");
-//        configuration.setPort(6379);
-//        return new JedisConnectionFactory(configuration);
-
-
-        @Bean
-        public JedisConnectionFactory connectionFactory() {
-            RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-            configuration.setHostName("dbibmdevopsapp-cache.redis.cache.windows.net");
-            configuration.setPort(6380);
-            configuration.setPassword("SB0ihmWJOzBxr0VPkEPfRvVW2pBJWHAIxAzCaCDQM6k=");
-            return new JedisConnectionFactory(configuration);
+    @Bean
+    public JedisConnectionFactory connectionFactory() {
+        RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
+        configuration.setHostName("localhost");
+        configuration.setPort(6379);
+        return new JedisConnectionFactory(configuration);
     }
+
+
+//        @Bean
+//        public JedisConnectionFactory connectionFactory() {
+//            RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
+//            configuration.setHostName("dbibmdevopsapp-cache.redis.cache.windows.net");
+//            configuration.setPort(6380);
+//            configuration.setPassword("SB0ihmWJOzBxr0VPkEPfRvVW2pBJWHAIxAzCaCDQM6k=");
+//            return new JedisConnectionFactory(configuration);
+//    }
 
 
     @Bean

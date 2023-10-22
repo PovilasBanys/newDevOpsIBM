@@ -9,15 +9,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 //import redis.clients.jedis.DefaultJedisClientConfig;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisShardInfo;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @SpringBootApplication
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/admin")
 public class SpringDataRedisExampleApplication {
     @Autowired
     private ProductDao dao;
@@ -29,10 +27,10 @@ public class SpringDataRedisExampleApplication {
         return dao.save(product, request);
     }
 
-//	@GetMapping
-//	public List<Product> getAllProducts() {
-//		return dao.findAll();
-//	}
+	@GetMapping("/all")
+	public List<Product> getAllProducts() {
+		return dao.findAll();
+	}
 
     @GetMapping("/{id}")
     public Product findProduct(@PathVariable int id) {
@@ -47,13 +45,6 @@ public class SpringDataRedisExampleApplication {
     public String count(){
         return dao.countIp();
     }
-
-//    public ModelAndView index() {
-//        ModelAndView model = new ModelAndView("index");
-//        String addressCount = dao.countIp();
-//        model.addObject("addressCount", addressCount);
-//        return model;
-//    }
 
     public ModelAndView index(HttpServletRequest request) {
         ModelAndView model = new ModelAndView("index");
