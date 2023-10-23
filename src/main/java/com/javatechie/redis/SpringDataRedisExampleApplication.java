@@ -114,8 +114,6 @@ public class SpringDataRedisExampleApplication {
 //
 //		jedis.close();
 
-
-
         SpringApplication.run(SpringDataRedisExampleApplication.class, args);
     }
 
